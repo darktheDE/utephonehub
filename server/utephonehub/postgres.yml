@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: utephonehub_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: utephonehub
+      POSTGRES_USER: utephonehub
+      POSTGRES_PASSWORD: utephonehub123
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - utephonehub_network
+
+volumes:
+  postgres_data:
+
+networks:
+  utephonehub_network:

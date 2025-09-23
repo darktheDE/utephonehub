@@ -55,6 +55,7 @@ Database chạy tại localhost:5434
 - User: utephonehub
 - Password: utephonehub123
 - Database: utephonehub
+
 Từ lần sau, chỉ cần start image trong docker desktop
 
 ### 1.1 Thao tác database với docker (PostgreSQL)
@@ -66,20 +67,22 @@ docker exec -it utephonehub_postgres bash
 # Trong container, chạy:
 psql -U utephonehub -d utephonehub
 ```
-Lưu ý: Trong image đã có database utephonehub. Mọi thay đổi, cập nhật đều được cập nhật.
+- Lưu ý: Trong image đã có database utephonehub. Mọi thay đổi, cập nhật đều được cập nhật.
 ### 1.2 Thao tác database với client PostgreSQL (DBeaver, pgAdmin, IntelliJ, psql CLI...)
-Host: localhost
-Port: 5434
-Database: utephonehub
-User: utephonehub
-Password: utephonehub123
+- Host: localhost
+- Port: 5434
+- Database: utephonehub
+- User: utephonehub
+- Password: utephonehub123
 
 
 ### 2. Chạy backend (Java Servlet)
 ```
 cd server/utephonehub
-./mvnw compile exec:java
+./mvnw.cmd jetty:run
 ```
+- Hoặc có thể config bằng tomcat bình thường
+
 Backend chạy tại http://localhost:8080
 
 ### 3. Chạy frontend (React + Vite)
